@@ -18,7 +18,7 @@ int main()
     printf("\n");
 
     QSort(a, b, 5, 0);
-     for(i=0; i<5; i++)
+    for(i=0; i<5; i++)
     {
         printf("%d ", b[i]);
     }
@@ -31,6 +31,7 @@ int main()
 int QSort(int a[5],int b[5], int size, int loc)
 {
     int left[5], right[5], i, j=0, k=0, target=a[0];
+    
     for(i=1; i<size; i++)
     {
         if(a[i] < target)
@@ -45,6 +46,8 @@ int QSort(int a[5],int b[5], int size, int loc)
         }
     }
     b[j+loc] = a[0];
+    int b0 = b[0], b1 = b[1], b2 = b[2], b3 = b[3], b4 = b[4];
+    /*
     if(size == 3)
     {
         b[j-1+loc] = left[0];
@@ -54,12 +57,26 @@ int QSort(int a[5],int b[5], int size, int loc)
     else if(size == 2 && j == 1)
     {
         b[j-1+loc] = left[0];
+        return 0;
     }
-     else if(size == 2 && j == 1)
+    else if(size == 2 && k == 1)
     {
         b[j+1+loc] = right[0];
+        return 0;
     }
-    QSort(left, b, j, loc);
-    QSort(right, b, k, loc+j+1);
+    else if(size == 1)
+    {
+        return 0;
+    }
+    */
+    if(j != 0)
+    {
+        QSort(left, b, j, loc);
+    }
+    if(k != 0)
+    {
+        QSort(right, b, k, loc+j+1);
+    }
+    
     return 0;
 }
